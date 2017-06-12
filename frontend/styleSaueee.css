@@ -1,0 +1,53 @@
+.custom {
+    margin: 20px 20px 20px 20px;
+    padding-top: 10px;
+    border: #cdcdcd medium solid;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+     min-height: 100px;
+     text-align: center;
+}
+.jsInserted:hover{
+  cursor: pointer;
+}
+
+.head{
+  min-height: 100px;
+}
+
+.jumbotron{
+  height: 150px;
+}
+
+h4{
+  text-align: center;
+  font-size: 3em;
+}
+.roomDescription{
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+.sensorValues{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.modal-body{
+  min-height: 300px;
+}
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
