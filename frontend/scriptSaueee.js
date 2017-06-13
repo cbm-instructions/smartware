@@ -3,7 +3,7 @@ function getData(url){
 	getJSON(url,
 	function(err, data) {
  	 if (err != null) {
-  	  alert('No Data'S);
+  	  alert('No Data');
   	} else {
   	 createRooms(data);
   	}
@@ -85,8 +85,7 @@ function createRooms(json){
 					'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
 					'<h4 class="modal-title">Raum: '+json.rooms[i].name+'</h4>'+
 					'</div><div class="modal-body"><p></p><div class="container col-sm-3 col-md-4 col-lg-4"></div><div class="container col-sm-6 col-md-4 col-lg-4">'+
-					'<div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3"><i class="material-icons icon">volume_up</i></div><div class="col-sm-1 col-md-1 col-lg-1"></div><div class="col-sm-8 col-md-8 col-lg-8 value">'+vol+' Dezibel ~'+volBew+'</div></div></div></div><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3">  <i class="material-icons icon">ac_unit</i></div><div'+ 'class="col-sm-1 col-md-1 col-lg-1"></div><div class="col-sm-8 col-md-8 col-lg-8 value">'+temp+' °C</div></div></div></div><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3"><i class="material-icons icon">people</i></div>  <div class="col-sm-1 col-md-1 col-lg-1"></div>  <div class="col-sm-8 col-md-8 col-lg-8 value">'+light+' Personen</div>  </div>  </div>    </div>  </div>  <div class="container col-sm-3 col-md-4'+ 'col-lg-4"></div></div>'+
-					'</div></div>';
+					'<div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3"><i class="material-icons icon">volume_up</i></div><div class="col-sm-1 col-md-1 col-lg-1"></div><div class="col-sm-8 col-md-8 col-lg-8 value">'+vol+' Dezibel ~'+volBew+'</div></div></div></div><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3">  <i class="material-icons icon">ac_unit</i></div><div class="col-sm-1 col-md-1 col-lg-1"></div><div class="col-sm-8 col-md-8 col-lg-8 value">'+temp+' °C</div></div></div></div><div class="panel panel-default"><div class="panel-body"><div class="row"><div class="col-sm-3 col-md-3 col-lg-3"><i class="material-icons icon">people</i></div>  <div class="col-sm-1 col-md-1 col-lg-1"></div>  <div class="col-sm-8 col-md-8 col-lg-8 value">'+light+' Personen</div>  </div>  </div>    </div>  </div>  <div class="container col-sm-3 col-md-4'+ 'col-lg-4"></div></div></div></div>';
 			document.getElementById('forModals').appendChild(divModal);
 		}
 
