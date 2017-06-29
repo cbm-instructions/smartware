@@ -126,9 +126,9 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 	Bitte folgenden Code an das Ende dieser Datei hängen: ~/.bashrc
 	(Öffnen mit: sudo nano ~/.bashrc)
-
 	export NVM_DIR="$HOME/.nvm"
 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+	
 	In der Konsole node und npm installieren:
 	nvm install node
 	nvm install npm
@@ -143,8 +143,10 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 	Anschließend das bei der Installation vergebene Passwort eingeben.
 	
 	In der mysql konsole (angezeigt durch mysql> folgende Befehle eingeben:
+	
 	create Database cbm;
 	use cbm;
+	
 	create table rooms(room_id int NOT NULL auto_increment,
 	name varchar(20) NOT NULL ,PRIMARY KEY(room_id));
 	
@@ -168,6 +170,7 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 	Anschließend Sensoren in DB eintragen:
 	Insert into sensors(room_id,name,type,url) values(„raum_id“,“name“,“typ“,“url“);
+	
 	Id muss richtigem Raum zugeordnet sein.
 	Name ist frei wählbar.
 	Typ muss entweder „temp“, „vol“ oder „light“ sein.
