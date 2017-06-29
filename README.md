@@ -188,7 +188,7 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 	(anzeigbar durch den Befehl ifconfig)
 
 ### Messstation
-`<Bild/>`
+![Messstation](/img/SensorStation01.png)
 
 #### Schaltplan
 ![Schaltplan SensorStation](/img/SensorStationBoard.png)
