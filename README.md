@@ -7,11 +7,17 @@ _Wie können wir Stundenten helfen..._
 
 ## Lösungsansatz/Prototyp
 `<Bild/>`
+
 ### Konzept
+`<Text/>`
 
 ## (Bau-)Anleitung
 ### Laserschranke
+`<Bild/>`
+
 #### Schranken
+`<Bilder/Text/>`
+
 #### Elektronik
 `<Bild/>`
 
@@ -35,12 +41,15 @@ Wir haben, um das Hauptprogramm einfach zu halten, Klassen erstellt, die uns erl
 **Achtung:** Der ESP32 verwendet 12Bit ADCs, was bedeutet, dass analoge 5V-Signale anstatt des auf Arduinos üblichen Wertebereiches von 0-255 auf 0-4095 gemappt werden. 
 
 ### Webkomponente
+`<Bilder/Text/>`
+
 #### Frontend
 
 Hier befindet sich die Benutzeroberfläche, welche mit HTML und CSS realisiert wird.
 Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 #### Backend
+`<Bilder/Text/>`
 
 ### Messstation
 `<Bild/>`
@@ -59,3 +68,6 @@ Pin 1 des DHT22 wird mit VCC, Pin 4 mit Masse und Pin 3 gar nicht verbunden. Pin
 Der Source-Code für die Messstation befindet sich unter [/src/SensorStation/](/src/SensorStation/). Die WLAN-Funktionalität inkl. Webserver sind [arduino-esp32 - SimpleWiFiServer](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/SimpleWiFiServer/SimpleWiFiServer.ino) entnommen.
 
 Wir hatten im Verlauf des Projekts Probleme damit, den DHT22 stabil durch den ESP32 anzusteuern. Deswegen haben wir uns dazu entschieden, fehlerhafte Messwerte zu ignorieren und nur die aktuellsten ([korrekten](/src/SensorStation/SensorStation.ino#L58)) Messwerte an das Backend weiterzureichen. Unsere Tests haben ergeben, dass ungefähr 80% aller Messungen fehlerhaft sind - Das kompensieren wir durch häufige (sekündliche) Messungen.
+
+## Fazit
+`<Ausblick/>`
