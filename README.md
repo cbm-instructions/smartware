@@ -45,7 +45,7 @@ Diese Halterungen waren nur für den Prototyp gedacht. Wenn das System dauerhaft
 `<Bilder/Text/>`
 
 #### Elektronik
-`<Bild/>`
+![DoorLaser](/img/DoorLaser01.png)
 
 ##### Schaltplan
 ![Schaltplan DoorLaser](/img/DoorLaserBoard.png)
