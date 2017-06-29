@@ -32,8 +32,8 @@ Folgende Teile benötigt (Angaben in mm):
 
 *   Optional: Zur besseren Befestigung des Lasers, sowie des Fototransistors können Winkel eingesetzt werden.
 
-![Laserhalterung](/img/Laserhalterung.png)
-![Spiegelhalterung](/img/Spiegelhalterung.png)
+![Laserhalterung](/img/Laserhalterung)
+![Spiegelhalterung](/img/Spiegelhalterung)
 
 Die Halterungen werden wie auf den Bildern zu sehen, zusammengeschraubt und falls gewünscht mit dem Lack besprüht. An der rechten Halterung ist ein Metwallwinkel zu sehen. Dieser wurde an der Oberseite mit etwas Klebeband isoliert, damit er keinen Kurzschluss erzeugt. Darauf wird später der Laser montiert. An der anderen Halterung muss dann die Spiegelhalterung (Dachlatten 70mm lang) angeschraubt werden. In einigem Abstand darunter wird die zweite Spiegelhalterung montiert. Die Spiegel werden dann mit Heißkleber befestigt. 
 Funktionsweise: Der Laser schießt das Licht auf den oberen Spiegel, welcher das Licht auf den unteren reflektiert und anschließend wieder zurück zur anderen Halterung. An der Stelle, wo der Laser wieder auftrifft wird dann der Fototransistor befestigt, sodass erkannt werden kann, ob der Lichtstrahl unterbrochen wurde.
@@ -156,18 +156,16 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 	In url muss die URL-Adresse eingetragen werden unter der der Sensor erreichbar ist.
 
 ###### Herunterladen und starten des Servers
-	
 	In leerem Ordner:
-	sudo git clone https://www.github.com/Saueee/cbm2017
+	sudo git clone https://github.com/cbm-instructions/smartware.git
 	
 	Die Datei mymysql.js öffnen und Adminname und Passwort des Datenbank-Servers eintragen.
-	sudo nano cbm/2017/backend/mymysql.js	
+	sudo nano src/WebComponent/backend/mymysql.js	
 
 	Installieren der Abhängigkeiten:
-	Im Verzeichnis cbm2017/ ausführen:
+	Im Verzeichnis src/webComonent ausführen:
 	npm install 
 	
-
 	Nun kann der Code gestartet werden: 
 	node main.js
 
@@ -175,7 +173,7 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 	(anzeigbar durch den Befehl ifconfig)
 
 ### Messstation
-![Messstation](/img/SensorStation01.png)
+`<Bild/>`
 
 #### Schaltplan
 ![Schaltplan SensorStation](/img/SensorStationBoard.png)
@@ -188,7 +186,8 @@ Bauteile:
 Pin 1 des DHT22 wird mit VCC, Pin 4 mit Masse und Pin 3 gar nicht verbunden. Pin 2 wird mit einem digitalen IO-Pin und über einen 4.7k Ohm Widerstand mit VCC verbunden.
 
 #### Code
-Der Source-Code für die Messstation befindet sich unter [/src/SensorStation/](/src/SensorStation/). Die WLAN-Funktionalität inkl. Webserver sind [arduino-esp32 - SimpleWiFiServer](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/SimpleWiFiServer/SimpleWiFiServer.ino) entnommen.
+Der Source-Code für die Messstation befindet sich unter [/src/SensorStation/](/src/SensorStation/). Die WLAN-Funktionalität inkl. Webserver sind [arduino-esp32 - SimpleWiFiServer](https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/SimpleWiFiServer/SimpleWiFiServer.ino) entnommen. Backend und Frontend Code befinden sich unter
+(src/WebComponent)
 
 Wir hatten im Verlauf des Projekts Probleme damit, den DHT22 stabil durch den ESP32 anzusteuern. Deswegen haben wir uns dazu entschieden, fehlerhafte Messwerte zu ignorieren und nur die aktuellsten ([korrekten](/src/SensorStation/SensorStation.ino#L58)) Messwerte an das Backend weiterzureichen. Unsere Tests haben ergeben, dass ungefähr 80% aller Messungen fehlerhaft sind - Das kompensieren wir durch häufige (sekündliche) Messungen.
 
