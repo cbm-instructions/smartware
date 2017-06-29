@@ -1,6 +1,8 @@
 var http = require('http');
 var express = require('express');
+var request = require('request');
 var fs = require('fs');
+var cmd = require('node-cmd');
 var jsonwriter = require("./backend/jsonwriter.js");
 var sql = require("./backend/mymysql.js");
 var app = express();
@@ -9,7 +11,7 @@ var sensors = [];
 
 //http interface
 app.get('/',function(req,res){
-	res.sendFile('frontend/indexSaueee.html',{root: __dirname});
+	res.sendFile('frontend/index.html',{root: __dirname});
 });
 
 //grabs sensor data and starts loop
@@ -31,10 +33,10 @@ sql.readDB("SELECT * FROM sensors",function(err,sqlData){
 //http interface to deliver sensordata
 app.get('/getData',function(req,res){
 	calculateData(function(err,data){
+		res.header("Content-Type", "application/json");
 		if(err){
 			res.send('{"error":"true"}');
 		}else{
-			res.header("Content-Type", "application/json");
 			res.send(data);
 		}
 	});
@@ -57,32 +59,50 @@ function calculateData(callback){
 		}
 	});
 }
+app.get('/sensors',function(req,res){
+	res.header("Content-Type", "application/json");
+	res.send('{"temp": 50}');
+});
 
 //Grabs sensor data
 function getAndSaveSensorData(sensorNumber){
 	//Code is used for testing, use outcommented code to run with real sensors
-	json={sensor_id:2,value:55};
-	sql.writeDB(json,function(err,ret){
-			if(err){
-				console.log("Failed writing to DB!");
-			}else{
-				console.log("Succesfully writen to DB!");
-			}
-		});
-	//~ http.get(sensor[sensorNumber].url,function(err,json){
-		//~ if(!err){
-			//~ json.sensor_id=sensorNumber;
-			//~ mymysql.writeDB(json,function(err,ret){
-			//~ if(err){
-				//~ log.writeToLogfile("Failed writing to DB!");
-			//~ }else{
-				//~ log.writeToLogfile("Succesfully writen to DB!");
-			//~ }
-			//~ });
-		//~ }else{
-			//~ console.log("Couldn't reach sensor: "+sensorNumber);
-		//~ }
-	//~ });
+	// json={sensor_id:6,value:55};
+	// sql.writeDB(json,function(err,ret){
+	// 		if(err){
+	// 			console.log("Failed writing to DB!");
+	// 		}else{
+	// 			console.log("Succesfully writen to DB!");
+	// 		}
+	// 	});
+
+    cmd.get('curl '+sensors[sensorNumber].url, function(err, data, stderr){
+			console.log(data);
+			if(!err){
+				var sensorValue;
+				data=JSON.parse(data);
+				if(sensors[sensorNumber].type=='temp'){
+						sensorValue = data.temp;
+					}
+					if(sensors[sensorNumber].type=='light'){
+						sensorValue = data.laser+data.door;
+					}
+					if(sensors[sensorNumber].type=='vol'){
+						sensorValue = data.humidity;
+					}
+					json = '{"sensor_id":'+sensors[sensorNumber].sensor_id+',"value":'+sensorValue+'}';
+					json=JSON.parse(json);
+					sql.writeDB(json,function(err,ret){
+						if(err){
+							console.log("Failed writing to DB!");
+						}else{
+							console.log("Succesfully writen to DB!");
+						}
+				  });
+				}else{
+					console.log("Couldn't reach sensor!")
+				}
+    });
 }
 
 //loop for sensordata http calls
@@ -90,5 +110,5 @@ function sensorDataCallback(){
 	for(var i=0;i<sensors.length;i++){
 		getAndSaveSensorData(i);
 	}
-	setTimeout(sensorDataCallback,10000);
+	setTimeout(sensorDataCallback,5000);
 }
