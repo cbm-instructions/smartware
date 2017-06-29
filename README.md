@@ -132,7 +132,8 @@ USB-Maus, USB Tastatur, Netzadapter Micro-USB, HDMI-fähiger Monitor
 	
 	create Table sensors(sensor_id int NOT NULL auto_increment, 
 	name varchar(20) NOT NULL, type varchar(20) NOT NULL,
-	url varchar(200) NOT NULL, room_id int  NOT NULL, PRIMARY KEY(sensor_id), FOREIGN KEY(room_id) references 			rooms(room_id));
+	url varchar(200) NOT NULL, room_id int  NOT NULL, PRIMARY KEY(sensor_id), 
+	FOREIGN KEY(room_id) references rooms(room_id));
 	
 	create table sensorvalues(value_id int NOT NULL auto_increment, 
 	sensor_id int NOT NULL, value int NOT NULL, timest timestamp ,
