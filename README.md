@@ -80,15 +80,20 @@ Wir haben, um das Hauptprogramm einfach zu halten, Klassen erstellt, die uns erl
 **Achtung:** Der ESP32 verwendet 12Bit ADCs, was bedeutet, dass analoge 5V-Signale anstatt des auf Arduinos üblichen Wertebereiches von 0-255 auf 0-4095 gemappt werden. 
 
 ### Webkomponente
-![Frontend](/img/frontend.png)
-![Frontend_Modal](/img/frontendmodal.png)
 
 #### Frontend
+
+![Frontend](/img/frontend.png)
+![Frontend_Modal](/img/frontendmodal.png)
 
 Hier befindet sich die Benutzeroberfläche, welche mit HTML und CSS realisiert wird.
 Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 #### Backend
+
+Hier befindet sich der Code zum betreiben des Backend Servers.
+Geschrieben in node.js. Außerdem wird eine mysql Datenbank genutzt.
+
 ##### Setup und Installation des Backend und Frontend auf dem Raspberry Pi 
 
 ###### Benötigte Teile: 
