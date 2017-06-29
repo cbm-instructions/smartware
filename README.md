@@ -79,7 +79,7 @@ Wir haben, um das Hauptprogramm einfach zu halten, Klassen erstellt, die uns erl
 
 ### Webkomponente
 ![Frontend](/img/frontend.png)
-![Frontend_Modal](/img/frontend modal.png)
+![Frontend_Modal](/img/frontendmodal.png)
 
 #### Frontend
 
