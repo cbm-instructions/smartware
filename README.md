@@ -57,9 +57,6 @@ Funktionsweise: Der Laser schießt das Licht auf den oberen Spiegel, welcher das
 **Bitte beachten Sie:**
 Diese Halterungen waren nur für den Prototyp gedacht. Wenn das System dauerhaft installiert werden soll, ist eine feste Verankerung (bspw. im Türrahmen) sinnvoll.
 
-#### Schranken
-`<Bilder/Text/>`
-
 #### Elektronik
 ![DoorLaser](/img/DoorLaser01.png)
 
