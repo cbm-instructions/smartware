@@ -32,8 +32,8 @@ Folgende Teile benötigt (Angaben in mm):
 
 *   Optional: Zur besseren Befestigung des Lasers, sowie des Fototransistors können Winkel eingesetzt werden.
 
-![Laserhalterung](/img/Laserhalterung)
-![Spiegelhalterung](/img/Spiegelhalterung)
+![Laserhalterung](/img/Laserhalterung.png)
+![Spiegelhalterung](/img/Spiegelhalterung.png)
 
 Die Halterungen werden wie auf den Bildern zu sehen, zusammengeschraubt und falls gewünscht mit dem Lack besprüht. An der rechten Halterung ist ein Metwallwinkel zu sehen. Dieser wurde an der Oberseite mit etwas Klebeband isoliert, damit er keinen Kurzschluss erzeugt. Darauf wird später der Laser montiert. An der anderen Halterung muss dann die Spiegelhalterung (Dachlatten 70mm lang) angeschraubt werden. In einigem Abstand darunter wird die zweite Spiegelhalterung montiert. Die Spiegel werden dann mit Heißkleber befestigt. 
 Funktionsweise: Der Laser schießt das Licht auf den oberen Spiegel, welcher das Licht auf den unteren reflektiert und anschließend wieder zurück zur anderen Halterung. An der Stelle, wo der Laser wieder auftrifft wird dann der Fototransistor befestigt, sodass erkannt werden kann, ob der Lichtstrahl unterbrochen wurde.
@@ -78,7 +78,7 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 `<Bilder/Text/>`
 
 ### Messstation
-`<Bild/>`
+![Messstation](/src/SensorStation01.png)
 
 #### Schaltplan
 ![Schaltplan SensorStation](/img/SensorStationBoard.png)
