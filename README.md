@@ -21,13 +21,18 @@ Die Projektarbeit dieses Kurses fand in zwei Pfasen statt: Dem Design Thinking u
 * [Fazit](#fazit)
 
 ## POV
-_Wie können wir Stundenten helfen..._
+_Wie können wir Stundenten helfen freie Räume zu finden, um dort in Ruhe zu lernen/arbeiten?_
 
 ## Lösungsansatz/Prototyp
-`<Bild/>`
+Da es an unserer Hochschule keine zentrale Übersicht über aktuelle Raumbelegungen gibt und somit die Suche nach freien Hörsälen zum (gemeinsamen) Lernen und Arbeiten mitunter zeitaufwändig werden kann, wollten wir ein System entwickeln, mit dem Studenten überall und jederzeit geeignete Lernräume finden können.
+Zu diesem Zweck haben wir ein dreiteiliges System entwickelt, bestehend aus:
+*	Türsystem
+	*	Laserschranke
+	*	Türsensor (Reed Switch)
+*	Webkomponente
+*	Messstation
 
-### Konzept
-`<Text/>`
+Das Türsystem erfasst Aktivität im Eingangsbereich. Während die Laserschranke bei Unterbrechung des Laserstrahls durch dadurch laufende Menschen auslöst, registriert der Türsensor das Öffnen und Schließen der Tür. Die Messstation misst die Temperatur- und Luftfeuchtigkeit, um eine Bewertung der Luftqualität zu ermöglichen. All diese Daten fließen in der Webkomponente zusammen. Diese kann auf mobilen sowie Desktop-Geräten genutzt werden.
 
 ## (Bau-)Anleitung
 ### Laserschranke
@@ -207,4 +212,9 @@ Der Source-Code für die Messstation befindet sich unter [/src/SensorStation/](/
 Wir hatten im Verlauf des Projekts Probleme damit, den DHT22 stabil durch den ESP32 anzusteuern. Deswegen haben wir uns dazu entschieden, fehlerhafte Messwerte zu ignorieren und nur die aktuellsten ([korrekten](/src/SensorStation/SensorStation.ino#L58)) Messwerte an das Backend weiterzureichen. Unsere Tests haben ergeben, dass ungefähr 80% aller Messungen fehlerhaft sind - Das kompensieren wir durch häufige (sekündliche) Messungen.
 
 ## Fazit
-`<Ausblick/>`
+
+Die vorhandenen Daten lassen zwar bereits eine recht gute Bewertung der Raumverfügbarkeiten zu, jedoch würden Lautstärkemessungen die Qualität der Beurteilungen deutlich erhöhen. Aus Nutzerinterviews ging hervor, dass besonders die mobile Anwendung viel Anklang finden würde. Die Verwendung von WLAN als Kommunikationskanal resultierte in einfachen Installationen, verglichen mit kabelgebundenen Lösungen.
+
+Bezüglich der Erweiterung des Sytems um Lautstärkemessungen muss recherchiert und erarbeitet werden, welche Mikrofone sich für diesen speziellen Anwendungsfall eignen. Für eine dauerhafte Installation der Türstation empfehlen wir die feste Integration der Bauteile in Türrahmen. Die Messstation hingegen kann frei im Raum platziert werden. Zur präziseren Bewertung der Luftqualität könnten verschiedene Bestandteile in der Raumluft gemessen werden.
+
+Das positive Feedback der Nutzer, der unkomplizierte Zusammenbau und die einfache Installation der Komponenten legen die Umsetzung des Projekts an der Hochschule nahe. Ebenso bietet es viele Möglichkeiten zur Erweiterung und kann beispielsweise für Open Data über die Hochschule verwendet werden.
