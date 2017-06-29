@@ -78,7 +78,7 @@ Wir haben, um das Hauptprogramm einfach zu halten, Klassen erstellt, die uns erl
 **Achtung:** Der ESP32 verwendet 12Bit ADCs, was bedeutet, dass analoge 5V-Signale anstatt des auf Arduinos üblichen Wertebereiches von 0-255 auf 0-4095 gemappt werden. 
 
 ### Webkomponente
-`<Bilder/Text/>`
+(/img/frontend.png)
 
 #### Frontend
 
