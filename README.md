@@ -75,7 +75,103 @@ Hier befindet sich die Benutzeroberfläche, welche mit HTML und CSS realisiert w
 Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 #### Backend
-`<Bilder/Text/>`
+##### Setup und Installation des Backend und Frontend auf dem Raspberry Pi 
+
+###### Benötigte Teile: 
+Raspberry Pi 3
+Micro SD Karte
+Router mit Internetverbindung (Internet nur zur Konfiguration)
+USB-Maus, USB Tastatur, Netzadapter Micro-USB, HDMI-fähiger Monitor
+
+###### Installieren sie Raspbian auf dem Raspberry Pi.
+	Eine einfache Schritt für Schritt Anleitung ist hier zu finden: 
+	https://www.raspberrypi.org/learning/noobs-install/
+	
+###### Verbinden sie den Raspberry mit dem Internet.
+
+###### Installieren der benötigten Software.
+	Führen sie folgende Befehle in der Konsole aus:
+	sudo apt-get update
+	sudo apt-get upgrade
+
+	Folgende Befehle installieren einen Datenbank-Server:
+	sudo apt-get install mysql-server
+	sudo apt-get install mysql-client
+	sudo service mysql start;
+	
+	Installieren von git:
+	sudo apt-get install git
+	
+	Installieren von nodejs:
+	In einem leeren Verzeichnis:
+	sudo git clone https://github.com/creationix/nvm.git.nvm
+
+	Bitte folgenden Code an das Ende dieser Datei hängen: ~/.bashrc
+	(Öffnen mit: sudo nano ~/.bashrc)
+
+	export NVM_DIR="$HOME/.nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+	In der Konsole node und npm installieren:
+	nvm install node
+	nvm install npm
+
+	prüfe installation mit:
+	node --version 
+	npm --version
+
+###### Anlegen der Datenbank
+	Einloggen in den Datenbank-Server mit:
+	mysql -u „adminname“ -p -h localhost
+	Anschließend das bei der Installation vergebene Passwort eingeben.
+	
+	In der mysql konsole (angezeigt durch mysql> folgende Befehle eingeben:
+	create Database cbm;
+	use cbm;
+	create table rooms(room_id int NOT NULL auto_increment,
+	name varchar(20) NOT NULL ,PRIMARY KEY(room_id));
+	
+	create Table sensors(sensor_id int NOT NULL auto_increment, 
+	name varchar(20) NOT NULL, type varchar(20) NOT NULL,
+	url varchar(200) NOT NULL, room_id int  NOT NULL, PRIMARY KEY(sensor_id), FOREIGN KEY(room_id) references 			rooms(room_id));
+	
+	create table sensorvalues(value_id int NOT NULL auto_increment, 
+	sensor_id int NOT NULL, value int NOT NULL, timest timestamp ,
+	PRIMARY KEY(value_id),FOREIGN KEY(sensor_id) references sensors(sensor_id));
+
+	Räume und Sensoren in die Datenbank eintragen:
+	In der mysql Konsole:
+	insert into rooms(name) values(„name“);
+	
+	Eingabe für jeden Raum wiederholen.
+
+	Die zugeordneten Ids können nun mit folgender Eingabe angezeigt werden:
+	Select * from rooms;
+
+	Anschließend Sensoren in DB eintragen:
+	Insert into sensors(room_id,name,type,url) values(„raum_id“,“name“,“typ“,“url“);
+	Id muss richtigem Raum zugeordnet sein.
+	Name ist frei wählbar.
+	Typ muss entweder „temp“, „vol“ oder „light“ sein.
+	In url muss die URL-Adresse eingetragen werden unter der der Sensor erreichbar ist.
+
+###### Herunterladen und starten des Servers
+	
+	In leerem Ordner:
+	sudo git clone https://www.github.com/Saueee/cbm2017
+	
+	Die Datei mymysql.js öffnen und Adminname und Passwort des Datenbank-Servers eintragen.
+	sudo nano cbm/2017/backend/mymysql.js	
+
+	Installieren der Abhängigkeiten:
+	Im Verzeichnis cbm2017/ ausführen:
+	npm install 
+	
+
+	Nun kann der Code gestartet werden: 
+	node main.js
+
+	Der Server sollte nun unter seiner IP-Adresse auf Port 3000 erreichbar sein.
+	(anzeigbar durch den Befehl ifconfig)
 
 ### Messstation
 `<Bild/>`
