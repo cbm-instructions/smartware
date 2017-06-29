@@ -1,6 +1,29 @@
-# cbm2017
+# Smartware
+"Challenge Based Making" an der Hochschule Mannheim im Sommersemester 2017. Betreut von Prof. Thomas Smits und Prof. Kirstin Kohler.
+Die Projektarbeit dieses Kurses fand in zwei Pfasen statt: Dem Design Thinking und der Umsetzung.
 
-Frontend
+## POV
+_Wie k√∂nnen wir Stundenten helfen..._
 
-Hier befindet sich die Benutzeroberfl‰che, welche mit HTML und CSS realisiert wird.
-Auﬂerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
+## L√∂sungsansatz/Prototyp
+`<Bild/>`
+### Konzept
+
+## (Bau-)Anleitung
+### Laserschranke
+#### Schranken
+#### Elektronik
+##### Schaltplan
+##### Code
+
+### Webkomponente
+#### Frontend
+
+Hier befindet sich die BenutzeroberflÔøΩche, welche mit HTML und CSS realisiert wird.
+Au√üerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
+
+#### Backend
+
+### Messstation
+#### Schaltplan
+#### Code
