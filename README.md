@@ -157,13 +157,13 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 
 ###### Herunterladen und starten des Servers
 	In leerem Ordner:
-	sudo git clone https://www.github.com/Saueee/cbm2017
+	sudo git clone https://github.com/cbm-instructions/smartware.git
 	
 	Die Datei mymysql.js öffnen und Adminname und Passwort des Datenbank-Servers eintragen.
-	sudo nano cbm/2017/backend/mymysql.js	
+	sudo nano src/WebComponent/backend/mymysql.js	
 
 	Installieren der Abhängigkeiten:
-	Im Verzeichnis cbm2017/ ausführen:
+	Im Verzeichnis src/webComonent ausführen:
 	npm install 
 	
 	Nun kann der Code gestartet werden: 
