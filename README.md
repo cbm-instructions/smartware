@@ -78,10 +78,10 @@ Außerdem sind Bootstrap und die Material-Icons von Google im Einsatz.
 ##### Setup und Installation des Backend und Frontend auf dem Raspberry Pi 
 
 ###### Benötigte Teile: 
-Raspberry Pi 3
-Micro SD Karte
-Router mit Internetverbindung (Internet nur zur Konfiguration)
-USB-Maus, USB Tastatur, Netzadapter Micro-USB, HDMI-fähiger Monitor
+	Raspberry Pi 3
+	Micro SD Karte
+	Router mit Internetverbindung (Internet nur zur Konfiguration)
+	USB-Maus, USB Tastatur, Netzadapter Micro-USB, HDMI-fähiger Monitor
 
 ###### Installieren sie Raspbian auf dem Raspberry Pi.
 	Eine einfache Schritt für Schritt Anleitung ist hier zu finden: 
