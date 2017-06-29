@@ -1,3 +1,6 @@
+/*
+  Based on "WiFi Web Server LED Blink"-example 
+*/
 
 #include <WiFi.h>
 #include "AnalogListener.h"
@@ -8,10 +11,8 @@
 #define LASER_MIN 1024 //anstatt 300: ESP32 hat 12bit ADC!
 #define LASER_MAX 4095 //anstatt 1024: ESP32 hat 12bit ADC
 
-//const char* ssid     = "M&M Router";
-//const char* password = "";
-const char* ssid     = "WLAN-13DE64";
-const char* password = "6146951670215168";
+const char* ssid     = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
 
 WiFiServer server(80);
 AnalogListener laser(PIN_LASER, LASER_MIN, LASER_MAX);

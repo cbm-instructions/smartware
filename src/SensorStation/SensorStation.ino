@@ -1,41 +1,16 @@
 /*
-  WiFi Web Server LED Blink
-
- A simple web server that lets you blink an LED via the web.
- This sketch will print the IP address of your WiFi Shield (once connected)
- to the Serial monitor. From there, you can open that address in a web browser
- to turn on and off the LED on pin 5.
-
- If the IP address of your shield is yourAddress:
- http://yourAddress/H turns the LED on
- http://yourAddress/L turns it off
-
- This example is written for a network using WPA encryption. For
- WEP or WPA, change the Wifi.begin() call accordingly.
-
- Circuit:
- * WiFi shield attached
- * LED attached to pin 5
-
- created for arduino 25 Nov 2012
- by Tom Igoe
-
-ported for sparkfun esp32 
-31.01.2017 by Jan Hendrik Berlin
- 
- */
+  Based on "WiFi Web Server LED Blink"-example 
+*/
 
 #include <WiFi.h>
 #include <DHT.h>
 #define DHTTYPE DHT22
 #define DHTPIN  17
 
-//const char* ssid     = "M&M Router";
-//const char* password = "";
-const char* ssid     = "WLAN-13DE64";
-const char* password = "6146951670215168";
+const char* ssid     = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
 WiFiServer server(80);
-DHT dht(DHTPIN, DHTTYPE, DHTPIN); // 11 works fine for ESP8266
+DHT dht(DHTPIN, DHTTYPE, DHTPIN);
  
 float humidity, temp_f;  // Values read from sensor
 char json[256];
@@ -74,17 +49,16 @@ void setup()
 void gettemperature() {
   unsigned long currentMillis = millis();
  
+  //Perform updates in fixed intervals
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
     float _humidity = dht.readHumidity();
     float _temp_f = dht.readTemperature(false);
     error = isnan(_humidity) || isnan(_temp_f);
     if (!error) {
+      //Save measures if they were read correctly
       humidity = _humidity;
       temp_f = _temp_f;
-      Serial.println("DHT22 SUCCESS");
-    } else {
-      Serial.println("DHT22 ERROR");
     }
   }
 }
